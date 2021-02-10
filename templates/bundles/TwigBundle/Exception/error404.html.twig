@@ -1,0 +1,15 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title 'Erreur 404 | ' ~ parent() %}
+
+{% block body %}
+    <article>
+            <h1>Erreur 404</h1>
+            <p>Cette page n'éxiste pas.</p>
+    </article>
+    <article>
+        <h3>
+            <a href=" {{path('home')}} ">Home</a>
+        </h3>
+    </article>
+{% endblock %}

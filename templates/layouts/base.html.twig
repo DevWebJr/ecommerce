@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    {% include "layouts/head.html.twig" %}
+    <body>
+    {% block body %}
+        {% include "layouts/header.html.twig" %}
+        {% include "layouts/partials/_flash_messages.html.twig" %}
+            {% if block('caroussel') is defined %}
+                {% include "layouts/caroussel.html.twig" %}
+                <div class="container marketing">
+            {% endif %}
+            {% if block('caroussel') is not defined %}
+                <div class="container marketing mt-5">
+            {% endif %}
+            {% block content %}
+
+            {% endblock %}
+        {% include "layouts/footer.html.twig" %}
+    {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,157 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.navbar-item-custom, .navbar-item-custom a{
+    color: #fff;
+}
+
+.navbar-connection {
+    display: flex;
+}
+
+.user-name {
+    color: rgb(172, 172, 161);
+    font-weight: bold;
+    text-decoration: none;
+}
+main{
+    padding: 0;
+    margin-bottom: 0.2vw;
+}
+
+.check.icon {
+    color: #000;
+    position: absolute;
+    margin-left: 3px;
+    margin-top: 4px;
+    width: 14px;
+    height: 8px;
+    border-bottom: solid 1px currentColor;
+    border-left: solid 1px currentColor;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  
+.flaticons{
+    width: 2vw;
+    height: 2vw;
+}  
+
+.vignettes {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.7vw;
+    margin: 0;
+}
+
+.illustration {
+    min-height: 20vw;
+    max-height: 20vw;
+    min-width: 20vw;
+    max-width: 20vw;
+    margin-bottom: 0.9vw;
+}
+
+.product-item {
+    padding: 0;
+    margin: 0.8vw;
+    box-shadow: 5px 5px 2px 0.5px rgba(238, 240, 233, 0.877);
+    min-height: 28vw;
+    max-height: 28vw;
+    min-width: 20vw;
+    max-width: 20vw;
+}
+
+.product-item h5{
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-bottom: 1px;
+}
+
+.product-item .product-subtitle {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.product-item .product-subtitle {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.one-product-price {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.illustration-min {
+    min-height: 4vw;
+    max-height: 4vw;
+    min-width: 3vw;
+    max-width: 3vw;
+}
+
+.customized-name-title {
+    color: #5A5A5A;
+}
+
+.customized-name {
+    color:#5A5A5A;
+    font-style:italic ;
+}
+
+.customized-price-title {
+    color:rgb(120, 79, 46);
+}
+
+.customized-price {
+    color:rgb(120, 79, 46);
+    font-weight: bold;
+}
+
+.customized-quantity-title {
+    color: rgb(82, 160, 160);
+}
+
+.customized-quantity {
+    color: rgb(82, 160, 160);
+    font-size: smaller;
+    font-weight: bold;
+    text-align: center;
+}
+
+.footer-custom {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    padding: 0.8vw;
+}
+
+.horizontal-space-1 {
+    width: 1vw;
+}
+
+.horizontal-space-2 {
+    width: 2vw;
+}
+
+.horizontal-space-3 {
+    width: 3vw;
+}
+
+.vertical-space-1 {
+    height: 1vw;
+}
+
+.vertical-space-2 {
+    height: 2vw;
+}
+
+.vertical-space-3 {
+    height: 3vw;
+}
