@@ -1,0 +1,18 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block title 'Accueil | ' ~ parent() %}
+
+{% block content %}
+
+{% block caroussel %}{% endblock %}
+
+<div class="jumbotron">
+  <h1 class="display-3 d-flex justify-content-center">Bienvenue</h1>
+  <p class="lead d-flex justify-content-center">Sur le site préféré de eCommerce des français</p>
+  <hr class="my-4">
+  <p class="lead d-flex justify-content-center">
+    <a class="btn btn-secondary btn-lg align-center" href="#" role="button">Visiter</a>
+  </p>
+</div>
+
+{% endblock %}
