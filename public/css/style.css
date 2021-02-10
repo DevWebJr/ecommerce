@@ -64,6 +64,13 @@ main{
     font-size: 15px;
     font-weight: bold;
 }
+
+/**form**/
+.placeholder-custmomized {
+    color:grey;
+    opacity: 0.33;
+}
+
 /* 
 .flaticons{
     width: 2vw;

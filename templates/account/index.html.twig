@@ -1,0 +1,20 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block title 'Mon Compte | ' ~ parent() %}
+
+{% block content %}
+
+    <div class="jumbotron">
+        <h3 class="display-8 d-flex justify-content-center"><i>{{ app.user.firstname }}</i>, </h3>
+        <p class="lead d-flex justify-content-center"> Bienvenue sur votre page personnelle.</p>
+        <hr class="my-4">
+        <div>
+            <a href="{{path('home')}}"> - Modifier mon mot de passe</a><br/>
+            <a href="{{path('home')}}"> - Accéder à mon panier</a><br/>
+            <a href="{{path('home')}}"> - Découvrir nos produits</a><br/>
+        </div>
+    </div>
+
+
+
+{% endblock %}
