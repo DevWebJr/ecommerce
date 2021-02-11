@@ -17,24 +17,24 @@
                 </li>
             </ul>
             <div class="navbar-item-custom">
-                    {% if app.user %}
-                        <span class="user-name" title="Mon Compte"> | {{ app.user.firstName}} | </span>
-                        <a href="{{path('home')}}" title="Panier">
-                           <i class="user-name fas fa-shopping-basket"></i>
-                           <span class="user-name" > | </span>
-                        </a>
-                        <a href="{{path('app_logout')}}" title="Déconnexion">
-                           <i class="user-name fas fa-user-alt-slash"></i>
-                        </a>            
-                    {% else %}
-                        <a href="{{path('app_login')}}" title="Connexion">
-                           <i class="user-name fas fa-user"></i>
-                           <span class="user-name" > | </span>
-                        </a>
-                        <a href="{{path('register')}}" title="Inscription">
-                            <i class="user-name fas fa-user-edit"></i>
-                        </a>            
-                    {% endif %}
+                {% if app.user %}
+                    <span class="user-name" title="Mon Compte"> | {{ app.user.firstName}} | </span>
+                    <a href="{{path('home')}}" title="Panier">
+                        <i class="user-name fas fa-shopping-basket"></i>
+                        <span class="user-name" > | </span>
+                    </a>
+                    <a href="{{path('app_logout')}}" title="Déconnexion">
+                        <i class="user-name fas fa-user-alt-slash"></i>
+                    </a>            
+                {% else %}
+                    <a href="{{path('app_login')}}" title="Connexion">
+                        <i class="user-name fas fa-user"></i>
+                        <span class="user-name" > | </span>
+                    </a>
+                    <a href="{{path('register')}}" title="Inscription">
+                        <i class="user-name fas fa-user-edit"></i>
+                    </a>            
+                {% endif %}
             </div>
         </div>
     </nav>

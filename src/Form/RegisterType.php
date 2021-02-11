@@ -59,6 +59,7 @@ class RegisterType extends AbstractType
                     'label' => false,
                     'attr' => [
                         'placeholder' => 'Mot De Passe',
+                        'onpaste' => 'return false',
                         'class' => 'placeholder-custmomized'
                     ]
                 ],

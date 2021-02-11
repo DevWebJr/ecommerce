@@ -77,8 +77,7 @@
     "scripts": {
         "go": [
             "symfony server:start -d",
-            "symfony open:local",
-            "code ."
+            "symfony open:local"
         ],        
         "ciao": [
             "symfony console server:stop"
