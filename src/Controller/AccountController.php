@@ -50,10 +50,15 @@ class AccountController extends AbstractController
                 $password = $encoder->encodePassword($user, $new_password);
 
                 $user->setPassword($password);
-                $this->entityManager->persist($user);
                 $this->entityManager->flush();
 
+                $this->addFlash('success', 'Mot De Passe Mis À Jour');
+
                 return $this->redirectToRoute('account');
+            }
+            else
+            {
+                $this->addFlash('danger', 'erreur de saisie');
             }
         }
 

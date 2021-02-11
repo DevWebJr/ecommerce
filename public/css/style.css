@@ -13,6 +13,12 @@
     text-decoration: none;
 }
 
+.customized-name {
+    color:#5A5A5A;
+    font-style:italic ;
+}
+
+
 /**body**/
 body, html {
     margin: 0;
@@ -106,11 +112,6 @@ main{
 
 .customized-name-title {
     color: #5A5A5A;
-}
-
-.customized-name {
-    color:#5A5A5A;
-    font-style:italic ;
 }
 
 .customized-price-title {
