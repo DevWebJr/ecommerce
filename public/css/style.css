@@ -31,6 +31,7 @@ main{
     margin-bottom: 0.2vw;
 }
 
+/**pictures**/
 .illustration {
     min-height: 20vw;
     max-height: 20vw;
@@ -53,6 +54,7 @@ main{
     margin: 0;
 }
 
+/**products**/
 .check.icon {
     color: #000;
     position: absolute;
@@ -64,7 +66,7 @@ main{
     border-left: solid 1px currentColor;
     -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg);
-  }
+}
   
 .product-item {
     padding: 0;
@@ -98,41 +100,6 @@ main{
     color:grey;
     opacity: 0.33;
 }
-
-/* 
-.flaticons{
-    width: 2vw;
-    height: 2vw;
-}  
-
-.one-product-price {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.customized-name-title {
-    color: #5A5A5A;
-}
-
-.customized-price-title {
-    color:rgb(120, 79, 46);
-}
-
-.customized-price {
-    color:rgb(120, 79, 46);
-    font-weight: bold;
-}
-
-.customized-quantity-title {
-    color: rgb(82, 160, 160);
-}
-
-.customized-quantity {
-    color: rgb(82, 160, 160);
-    font-size: smaller;
-    font-weight: bold;
-    text-align: center;
-} */
 
 /**footer**/
 .footer-custom {
