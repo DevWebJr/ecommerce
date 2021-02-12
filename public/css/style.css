@@ -31,6 +31,28 @@ main{
     margin-bottom: 0.2vw;
 }
 
+.illustration {
+    min-height: 20vw;
+    max-height: 20vw;
+    min-width: 20vw;
+    max-width: 20vw;
+    margin-bottom: 0.9vw;
+}
+
+.illustration-min {
+    min-height: 4vw;
+    max-height: 4vw;
+    min-width: 3vw;
+    max-width: 3vw;
+}
+
+.vignettes {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.7vw;
+    margin: 0;
+}
+
 .check.icon {
     color: #000;
     position: absolute;
@@ -83,31 +105,9 @@ main{
     height: 2vw;
 }  
 
-.vignettes {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0.7vw;
-    margin: 0;
-}
-
-.illustration {
-    min-height: 20vw;
-    max-height: 20vw;
-    min-width: 20vw;
-    max-width: 20vw;
-    margin-bottom: 0.9vw;
-}
-
 .one-product-price {
     font-size: 20px;
     font-weight: bold;
-}
-
-.illustration-min {
-    min-height: 4vw;
-    max-height: 4vw;
-    min-width: 3vw;
-    max-width: 3vw;
 }
 
 .customized-name-title {
@@ -141,7 +141,7 @@ main{
     bottom: 0;
     width: 100%;
     background-color: #f1f1f1;
-    padding: 0.8vw;
+    padding-top: 25px;
 }
 
 /**specials**/

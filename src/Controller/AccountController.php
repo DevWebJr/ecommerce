@@ -21,7 +21,7 @@ class AccountController extends AbstractController
 
 
     /**
-     * @Route("/compte", name="account")
+     * @Route("/compte", name="account", methods={"GET"})
      */
     public function index(): Response
     {
@@ -30,14 +30,16 @@ class AccountController extends AbstractController
     
 
     /**
-     * @Route("/compte/modifier-le-mot-de-passe", name="edit_password")
+     * @Route("/compte/modifier-le-mot-de-passe", name="edit_password", methods={"GET|PUT"})
      */
     public function editPassword(Request $request, UserPasswordEncoderInterface $encoder): Response
     {
         
         $user = $this->getUser();
 
-        $form = $this->createForm(EditPasswordType::class, $user);
+        $form = $this->createForm(EditPasswordType::class, $user, [
+            'method' => 'PUT'
+        ]);
         $form-> handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid())
@@ -52,7 +54,7 @@ class AccountController extends AbstractController
                 $user->setPassword($password);
                 $this->entityManager->flush();
 
-                $this->addFlash('success', 'Mot De Passe Mis À Jour');
+                $this->addFlash('info', 'Mot De Passe Mis À Jour');
 
                 return $this->redirectToRoute('account');
             }

@@ -113,6 +113,12 @@ class Product
         return $this;
     }
 
+    public function getFormattedPrice(): string
+    {
+        $newPrice = $this->price/100;
+        return number_format($newPrice, 2, ',' , '.');
+    }   
+
     public function getCategory(): ?Category
     {
         return $this->category;
