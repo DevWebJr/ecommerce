@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Classes\Search;
 use App\Entity\Product;
 use App\Form\SearchType;
+use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,9 +16,10 @@ class ProductController extends AbstractController
 {
     private $entityManager;
 
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager, ProductRepository $productRepository)
     {
         $this->entityManager = $entityManager;
+        $this->productRepository = $productRepository;
     }
 
     /**
@@ -34,7 +36,7 @@ class ProductController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid())
         {
-            $products = $this->entityManager->getRepository(Product::class)->findResearch($search);
+            $products = $this->productRepository->findByResearch($search);
         }
 
         return $this->render('product/index.html.twig', [
@@ -44,7 +46,7 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/produit/{slug}", name="show_one_product", methods={"GET"})
+     * @Route("/produit/{id}", name="show_one_product", methods={"GET"})
      */
     public function show_one(Product $product): Response
     {

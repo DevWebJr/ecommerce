@@ -23,7 +23,7 @@ class ProductRepository extends ServiceEntityRepository
     /**
      * @return Product[]
      */
-    public function findResearch(Search $search)
+    public function findByResearch(Search $search)
     {
         $query = $this->createQueryBuilder('p')
             ->select('c', 'p')

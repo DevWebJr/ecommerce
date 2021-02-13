@@ -13,7 +13,8 @@
                 <span class="one-product-price">{{(product.price/100)|number_format(2, ',' , '.')}} €</span>
                 <hr>
                 <p>{{ product.description }}</p>
-                <a href="#" class="btn btn-primary" title="ajouter au panier">
+                
+                <a href="{{path('add_to_cart', { id : product.id } )}}" class="btn btn-primary" title="ajouter au panier">
                     <i class="fas fa-shopping-cart mr-1"></i>
                 </a>
             </div>
