@@ -54,6 +54,11 @@ main{
     margin: 0;
 }
 
+.flaticons {
+    height: 2vw;
+    width: 2vw;
+}
+
 /**products**/
 .check.icon {
     color: #000;

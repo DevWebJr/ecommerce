@@ -6,6 +6,7 @@
 
     <div class="jumbotron">
         <h2 class="display-6">Mon Panier</h2>
+        {% if cart|length > 0 %}
         <p class="lead">Retrouvez l'ensemble des produits ajoutés à votre panier.</p>
         <table class="table mt-3">
             <thead>
@@ -15,6 +16,7 @@
                     <th scope="col">Prix</th>
                     <th scope="col" class="customized-quantity-title">Quantité</th>
                     <th scope="col" class="customized-price-title">Total</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
 
@@ -31,6 +33,11 @@
                     <td class="customized-quantity">X {{ product.quantity}}</td>
                     <td class="customized-price">{{ (product.product.price/100)|number_format(2, ',', '.') }} €</td>
                     <td class="customized-price">{{ ((product.product.price * product.quantity) /100)|number_format(2, ',', '.') }} €</td>
+                    <td>
+                        <a href="{{path('delete_from_cart', {'id' : product.product.id})}}" title="supprimer">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
                 </tr>
             {% set total = total + (product.product.price * product.quantity) %}
             {% endfor %}
@@ -44,7 +51,7 @@
         <div class="vertical-space-3"></div>
 
         <div class="text-center mb-3 d-flex justify-content-around">
-            <b><span class="customized-quantity-title"> {{ cart|length }} </span> article(s) pour un total de <span class="customized-price-title"> {{ total/100|number_format(2, ',', '.') }} €</span></b>
+            <b><span class="customized-quantity-title"> {{ cart|length }} </span> article(s) pour un total de <span class="customized-price-title"> {{ (total/100)|number_format(2, ',', '.') }} €</span></b>
         </div>
             <div class="vertical-space-3"></div>
 
@@ -55,9 +62,17 @@
                 <i class="fas fa-trash"></i>
             </a>
         </div>
+        {% else %}
+        <br>
+        <p class="lead">Il semblerait que votre panier soit vide.</p>
 
-        <p class="lead">
+        <p class="lead ml-4">
+            Retourner vers la boutique?
+            <a href="{{path('products')}}" title="Nos Produits">
+                <i class="ml-3 user-name fas fa-store"></i>
+            </a>
         </p>
+        {% endif %}
     </div>
 
 {% endblock %}
