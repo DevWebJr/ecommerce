@@ -84,10 +84,9 @@
             "symfony console server:stop"
         ],
         "boost": [
-            "symfony console doctrine:database:drop --if-exists --force",
+            "symfony console doctrine:database:drop --force",
             "symfony console doctrine:database:create",
-            "symfony console doctrine:schema:update --force",
-            "symfony console doctrine:fixtures:load -n"
+            "symfony console doctrine:schema:update --force"
         ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
