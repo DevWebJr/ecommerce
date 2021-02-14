@@ -3,76 +3,87 @@
 {% block title 'Mon Panier | ' ~ parent() %}
 
 {% block content %}
-
     <div class="jumbotron">
         <h2 class="display-6">Mon Panier</h2>
         {% if cart|length > 0 %}
-        <p class="lead">Retrouvez l'ensemble des produits ajoutés à votre panier.</p>
-        <table class="table mt-3">
-            <thead>
-                <tr>
-                    <th scope="col" class="customized-name-title">Article</th>
-                    <th scope="col"></th>
-                    <th scope="col">Prix</th>
-                    <th scope="col" class="customized-quantity-title">Quantité</th>
-                    <th scope="col" class="customized-price-title">Total</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
+            <p class="lead">Retrouvez l'ensemble des produits ajoutés à votre panier.</p>
+            <table class="table mt-3 mb-0">
+                <thead>
+                    <tr>
+                        <th scope="col" class="customized-name-title">Article</th>
+                        <th scope="col"></th>
+                        <th scope="col">Prix</th>
+                        <th scope="col" class="customized-quantity-title">Quantité</th>
+                        <th scope="col" class="customized-price-title">Total</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% set total = null %}
+                {% for index in cart %}
+                    <tr>
+                        <td>
+                            <img src=" {{ asset('/uploads/' ~ index.product.picture)}} " alt="{{ index.product.name }}" title="{{ index.product.name }}" class="img-fluid illustration-min">
+                        </td>
+                        <td class="customized-name">{{ index.product.name }}</td>
+                        <td>{{ index.product.formattedPrice }} €</td>
+                        <td class="customized-quantity">
+                            <a href="{{path('decrease_from_cart', {'id' : index.product.id})}}" title="diminuer">
+                                <i class="text-warning fas fa-minus"></i>
+                            </a>
+                            <span style="margin-left:0.6vw;">X {{ index.quantity}}</span>
+                            <a href="{{path('add_to_cart', {'id' : index.product.id})}}" title="augmenter">
+                                <i class="text-warning fas fa-plus"></i>
+                            </a>
+                        </td>
+                        <td class="customized-price">{{ (index.product.price/100)|number_format(2, ',', '.') }} €</td>
+                        <td class="customized-price">{{ ((index.product.price * index.quantity) /100)|number_format(2, ',', '.') }} €</td>
+                        <td>
+                            <a class="btn btn-danger" href="{{path('delete_from_cart', {'id' : index.product.id})}}" title="supprimer">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% for command in totalPrice %}
+                        <div class="customized-price">{{ command.quantity }} €</div>
+                    {% endfor %}
+                {% set total = total + (index.product.price * index.quantity) %}
+                {% endfor %}
+                </tbody>
+            </table>
 
-            <tbody>
-            {% set total = null %}
-            {% for product in cart %}
-                <tr>
-                    {# <th scope="row">{{}} </th> #}
-                    <td class="illustration-min">
-                        <img src=" {{ asset('/uploads/' ~ product.product.picture)}} " alt="{{ product.product.name }}" title="{{ product.product.name }}" class="img-fluid ">
-                    </td>
-                    <td class="customized-name">{{ product.product.name }}</td>
-                    <td>{{ product.product.formattedPrice }} €</td>
-                    <td class="customized-quantity">X {{ product.quantity}}</td>
-                    <td class="customized-price">{{ (product.product.price/100)|number_format(2, ',', '.') }} €</td>
-                    <td class="customized-price">{{ ((product.product.price * product.quantity) /100)|number_format(2, ',', '.') }} €</td>
-                    <td>
-                        <a href="{{path('delete_from_cart', {'id' : product.product.id})}}" title="supprimer">
-                            <i class="fas fa-trash-alt"></i>
-                        </a>
-                    </td>
-                </tr>
-            {% set total = total + (product.product.price * product.quantity) %}
-            {% endfor %}
-            </tbody>
-        </table>
+            <div class="vertical-space-1"></div>
 
-        <div class="vertical-space-1"></div>
+            <hr/>
 
-        <hr/>
-
-        <div class="vertical-space-3"></div>
-
-        <div class="text-center mb-3 d-flex justify-content-around">
-            <b><span class="customized-quantity-title"> {{ cart|length }} </span> article(s) pour un total de <span class="customized-price-title"> {{ (total/100)|number_format(2, ',', '.') }} €</span></b>
-        </div>
             <div class="vertical-space-3"></div>
 
-        <div class="lead d-flex justify-content-center">
-            <a class="btn btn-success btn-lg" href="#" role="button">Valider</a>
-            <div class="horizontal-space-2"></div>
-            <a class="btn btn-danger btn-lg" href="{{path('remove_cart')}} " role="button">
-                <i class="fas fa-trash"></i>
-            </a>
-        </div>
-        {% else %}
-        <br>
-        <p class="lead">Il semblerait que votre panier soit vide.</p>
+            <div class="text-center mb-3 d-flex justify-content-around">
+                <b><span class="customized-quantity-title"> {{ cart|length }} </span> article(s) pour un total de <span class="customized-price-title"> {{ (total/100)|number_format(2, ',', '.') }} €</span></b>
+            </div>
+                
+                <div class="vertical-space-3"></div>
 
-        <p class="lead ml-4">
-            Retourner vers la boutique?
-            <a href="{{path('products')}}" title="Nos Produits">
-                <i class="ml-3 user-name fas fa-store"></i>
-            </a>
-        </p>
+            <div class="lead d-flex justify-content-center">
+                <a class="btn btn-success btn-lg" href="#" role="button" title="valider la commande">
+                    <i class="fas fa-check"></i>
+                </a>
+                <div class="horizontal-space-2"></div>
+                <a class="btn btn-danger btn-lg" href="{{path('remove_cart')}} " role="button" title="annuler la commande">
+                    <i class="fas fa-times"></i>
+                </a>
+            </div>
+        {% else %}
+        
+            <br>
+            <p class="lead">Il semblerait que votre panier soit vide.</p>
+
+            <p class="lead ml-4">
+                Retourner vers la boutique?
+                <a href="{{path('products')}}" title="Nos Produits">
+                    <i class="ml-3 user-name fas fa-store"></i>
+                </a>
+            </p>
         {% endif %}
     </div>
-
 {% endblock %}

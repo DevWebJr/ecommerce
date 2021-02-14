@@ -41,10 +41,10 @@ main{
 }
 
 .illustration-min {
-    min-height: 4vw;
-    max-height: 4vw;
-    min-width: 3vw;
-    max-width: 3vw;
+    min-height: 5vw;
+    max-height: 5vw;
+    min-width: 4vw;
+    max-width: 4vw;
 }
 
 .vignettes {
