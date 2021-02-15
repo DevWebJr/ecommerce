@@ -1,15 +1,15 @@
 {% extends "layouts/base.html.twig" %}
 
-{% block title 'Ajouter une adresse | ' ~ parent() %}
+{% block title 'Modifier une adresse | ' ~ parent() %}
 
 {% block content %}
-    <h3>Ajouter une adresse</h3>
+    <h3>Modifier une adresse</h3>
     <div class="float-right mt-2 mr-2">
         <a href="{{path('account_addresses')}}" class="btn btn-secondary" title="mes adresses">
             <i class="fas fa-long-arrow-alt-left"></i> Mes adresses
         </a>
     </div>
     <div class="jumbotron">
-        {{ include ('account/_form.html.twig', {button: 'Ajouter'}) }}
+        {{ include ('account/_form.html.twig', {button: 'Modifier'}) }}
     </div>
 {% endblock %}

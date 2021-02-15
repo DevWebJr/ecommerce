@@ -18,7 +18,6 @@ class AddressType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'disabled' => true,
                 'label' => false,
                 'constraints' => new Length([
                     'min' => 2,
@@ -30,7 +29,6 @@ class AddressType extends AbstractType
                 ]
             ])
             ->add('firstName', TextType::class, [
-                'disabled' => true,
                 'label' => false,
                 'constraints' => new Length([
                     'min' => 2,
@@ -42,7 +40,6 @@ class AddressType extends AbstractType
                 ]
             ])
             ->add('lastName', TextType::class, [
-                'disabled' => true,
                 'label' => false,
                 'constraints' => new Length([
                     'min' => 2,
@@ -54,7 +51,6 @@ class AddressType extends AbstractType
                 ]
             ])
             ->add('address', TextType::class, [
-                'disabled' => true,
                 'label' => false,
                 'constraints' => new Length([
                     'min' => 2,
@@ -66,7 +62,6 @@ class AddressType extends AbstractType
                 ]
             ])
             ->add('postal', TextType::class, [
-                'disabled' => true,
                 'label' => false,
                 'constraints' => new Length([
                     'min' => 2,
@@ -111,9 +106,9 @@ class AddressType extends AbstractType
                 ]
             ])
             ->add('submit', SubmitType::class, [
-                'label' => ' Ajouter mon adresse',
+                'label' => ' Valider',
                 'attr' => [
-                    'class' => 'btn btn-warning fas fa-map-marker-alt text-white'
+                    'class' => 'btn btn-success fas fa-check text-white'
                 ]
             ])
         ;
