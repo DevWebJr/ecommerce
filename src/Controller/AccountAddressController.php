@@ -46,7 +46,8 @@ class AccountAddressController extends AbstractController
             $this->entityManager->persist($address);
             $this->entityManager->flush();   
 
-            $this->addFlash('success', 'Cet article a été ajouté à votre panier');
+            $this->addFlash('success', 'Cette adresse a été ajoutée.');
+
             return $this->redirectToRoute('account_addresses');
         }
 
@@ -74,7 +75,7 @@ class AccountAddressController extends AbstractController
         {
             $this->entityManager->flush();   
 
-            $this->addFlash('success', 'Cette adresse a été ajoutée.');
+            $this->addFlash('success', 'Cette adresse a été modifiée.');
             
             return $this->redirectToRoute('account_addresses');
         }
