@@ -84,7 +84,10 @@ class EditPasswordType extends AbstractType
             ]
         ])
         ->add('submit', SubmitType::class, [
-            'label' => 'Mettre à jour'
+            'label' => ' Modifier',
+            'attr' => [
+                'class' => 'btn btn-warning fas fa-key text-white'
+            ]
         ])
         ;
     }

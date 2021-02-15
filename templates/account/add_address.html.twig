@@ -1,17 +1,15 @@
 {% extends "layouts/base.html.twig" %}
 
-{% block title 'Modifier le mot de passe | ' ~ parent() %}
+{% block title 'Ajouter une adresse | ' ~ parent() %}
 
 {% block content %}
-    <h3>Modifier le mot de passe</h3>
+    <h3>Ajouter une adresse</h3>
     <div class="float-right mt-2 mr-2">
         <a href="{{path('account')}}" class="btn btn-secondary" title="mon compte">
             <i class="fas fa-long-arrow-alt-left"></i> Mon compte
         </a>
     </div>
     <div class="jumbotron">
-        <hr>
-            {{ form(form) }}
-        <hr>
+        {{ form(form)}}
     </div>
 {% endblock %}

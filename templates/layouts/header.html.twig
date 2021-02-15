@@ -24,25 +24,24 @@
             </ul>
             <div class="navbar-item-custom">
                 {% if app.user %}
+                    {# <a href="{{path('cart')}}" title="Panier">
+                        <i class="user-color fas fa-shopping-cart"></i>
+                        <span class="user-color" > | </span>
+                    </a> #}
                     <a href="{{path('account')}}">
-                        <span class="user-name" title="Mon Compte">
-                         | {{ app.user.firstName}} | 
-                        </span>
-                        </a>
-                    <a href="{{path('cart')}}" title="Panier">
-                        <i class="user-name fas fa-shopping-basket"></i>
-                        <span class="user-name" > | </span>
+                        <i class="user-color fas fa-user-cog" title="mon compte"></i>
+                        <span class="user-color" > | </span>
                     </a>
                     <a href="{{path('app_logout')}}" title="Déconnexion">
-                        <i class="user-name fas fa-user-alt-slash"></i>
+                        <i class="user-color fas fa-user-alt-slash"></i>
                     </a>            
                 {% else %}
                     <a href="{{path('app_login')}}" title="Connexion">
-                        <i class="user-name fas fa-user"></i>
-                        <span class="user-name" > | </span>
+                        <i class="user-color fas fa-user"></i>
+                        <span class="user-color" > | </span>
                     </a>
                     <a href="{{path('register')}}" title="Inscription">
-                        <i class="user-name fas fa-user-edit"></i>
+                        <i class="user-color fas fa-user-edit"></i>
                     </a>            
                 {% endif %}
             </div>
