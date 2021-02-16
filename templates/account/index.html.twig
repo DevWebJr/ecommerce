@@ -3,31 +3,34 @@
 {% block title 'Mon Compte | ' ~ parent() %}
 
 {% block content %}
-    <h3>Mon Compte</h3>
     <div class="jumbotron">
-    {% if app.user %}
-        <p class="lead d-flex justify-content-center"><b>{{ app.user.firstname }}</b>, bienvenue sur votre page personnelle.</p>
-        <hr class="my-4">
-        <div class="d-flex justify-content-around">
-            <a class="btn btn-info" title="modifier mon mot de passe" href="{{path('edit_password')}}">
-                <i class="fas fa-key"></i> Mon mot de passe
-            </a>
-            <a class="btn btn-info" title="mon panier" href="{{path('cart')}}">
-                <i class="fas fa-shopping-cart"></i> Mon panier
-            </a>
-            <a class="btn btn-info" title="modifier mes adresses" href="{{path('account_addresses')}}">
-                <i class="fas fa-map-marker-alt"></i> Mes adresses
-            </a>
-        </div>
-    {% else %}
-        <p class="lead d-flex justify-content-center">Houston, we have a problem.</p>
-        <hr class="my-4">
-        <div>
-            <a href="{{path('home')}}"> - Revenir à la page d'accueil</a><br/>
-            <a href="{{path('app_login')}}">- Se connecter</a><br/>
-        </div>
+        <h3 class="display-6 text-center">Mon Compte</h3>
+        <br>
+        {% if app.user %}
+            <p class="lead d-flex justify-content-center"><b>{{ app.user.firstname }}</b>, bienvenue sur votre page personnelle.</p>
+            <hr class="my-4">
+            <div class="d-flex justify-content-around">
+                <a class="btn btn-info" title="modifier mon mot de passe" href="{{path('edit_password')}}">
+                    <i class="fas fa-key"></i> Mon mot de passe
+                </a>
+                <div class="horizontal-space-3"></div>
+                <a class="btn btn-info" title="mon panier" href="{{path('cart')}}">
+                    <i class="fas fa-shopping-cart"></i> Mon panier
+                </a>
+                <div class="horizontal-space-3"></div>
+                <a class="btn btn-info" title="modifier mes adresses" href="{{path('account_addresses')}}">
+                    <i class="fas fa-map-marker-alt"></i> Mes adresses
+                </a>
+            </div>
+        {% else %}
+            <p class="lead d-flex justify-content-center">Houston, we have a problem.</p>
+            <hr class="my-4">
+            <div>
+                <a href="{{path('home')}}"> - Revenir à la page d'accueil</a><br/>
+                <a href="{{path('app_login')}}">- Se connecter</a><br/>
+            </div>
 
-    {% endif %}
+        {% endif %}
     </div>
 
 

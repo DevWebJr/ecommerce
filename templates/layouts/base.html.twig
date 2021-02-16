@@ -7,10 +7,10 @@
         {% include "layouts/partials/_flash_messages.html.twig" %}
             {% if block('caroussel') is defined %}
                 {% include "layouts/caroussel.html.twig" %}
-                <div class="container marketing">
+                <div class="container p-0">
             {% endif %}
             {% if block('caroussel') is not defined %}
-                <div class="container marketing mt-5">
+                <div class="container p-0 mt-5">
             {% endif %}
             {% block content %}
 

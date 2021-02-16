@@ -15,10 +15,12 @@
                     <div class="col-md-4 vignette">
                         <div class="product-item text-center">
                             <a href="{{path('show_one_product', {id:product.id})}}">
-                                <img class="illustration" src="{{ asset('/uploads/' ~ product.picture) }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-fluid ">
+                                <img src="{{ asset('/uploads/' ~ product.picture) }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-fluid img-thumbnail illustration ">
                             </a>
-                            <h5>{{ product.name }}</h5>
-                            <span class="product-price">{{ (product.price/100)|number_format(2, ',' , '.') }} €</span>
+                            <div class="under-vignette">
+                                <span class="product-title">{{ product.name }}</span>
+                                <span class="product-price">{{ (product.price/100)|number_format(2, ',' , '.') }} €</span>
+                            </div>
                         </div>
                     </div>
                 {% endfor %}

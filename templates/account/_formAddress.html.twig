@@ -9,4 +9,9 @@
         <div class="col-md-6">{{ form_row(form.country)}}</div>
         <div class="col-md-6">{{ form_row(form.phone)}}</div>
     </div>
+    <br>
+    <div class="d-flex justify-content-center">
+        {{ form_widget(form)}}
+        <button class="btn btn-success fas fa-check text-white">{{button|default(' Enregistrer')}}</button>
+    </div>
 {{ form_end(form)}}

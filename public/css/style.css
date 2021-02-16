@@ -31,13 +31,12 @@ main{
     margin-bottom: 0.2vw;
 }
 
-/**pictures**/
+/**products**/
 .illustration {
-    min-height: 20vw;
-    max-height: 20vw;
+    min-height: 22vw;
+    max-height: 22vw;
     min-width: 20vw;
     max-width: 20vw;
-    margin-bottom: 0.9vw;
 }
 
 .illustration-min {
@@ -50,57 +49,48 @@ main{
 .vignettes {
     display: flex;
     flex-wrap: wrap;
-    padding: 0.7vw;
+    padding: 0;
     margin: 0;
 }
 
-.flaticons {
-    height: 2vw;
-    width: 2vw;
-}
-
-/**products**/
-.check.icon {
-    color: #000;
-    position: absolute;
-    margin-left: 3px;
-    margin-top: 4px;
-    width: 14px;
-    height: 8px;
-    border-bottom: solid 1px currentColor;
-    border-left: solid 1px currentColor;
-    -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-}
-  
-.product-item {
+.vignette {
     padding: 0;
-    margin: 0.8vw;
-    box-shadow: 5px 5px 2px 0.5px rgba(238, 240, 233, 0.877);
+    margin-top: 2.5vw;
+    margin-bottom: 2.5vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    width: auto;
+    /* box-shadow: 5px 5px 2px 0.5px rgba(238, 240, 233, 0.877); */
     min-height: 28vw;
     max-height: 28vw;
-    min-width: 20vw;
-    max-width: 20vw;
+    min-width: 21vw;
+    max-width: 21vw;
 }
 
-.product-item h5{
-    text-transform: uppercase;
-    font-size: 15px;
-    margin-bottom: 1px;
+.under-vignette {
+    display: flex;
+    flex-direction: column;
 }
 
-.product-item .product-subtitle {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.product-item .product-subtitle {
-    font-size: 15px;
+.product-title {
+    font-size: 16px;
     font-weight: bold;
+    text-align: center;
 }
 
+.product-price {
+    font-size: smaller;
+    font-style: italic;
+    text-align: center;
+    color: rgb(172, 172, 161);
+
+}
 /**form**/
+.login-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .placeholder-custmomized {
     color:grey;
     opacity: 0.33;
@@ -112,8 +102,8 @@ main{
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: #f1f1f1;
-    padding-top: 25px;
+    padding: 0;
+    margin: 0;
 }
 
 /**specials**/

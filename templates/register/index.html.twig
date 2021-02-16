@@ -3,9 +3,11 @@
 {% block title 'Inscription | ' ~ parent() %}
 
 {% block content %}
-    
-    <h1 class="text-center">Inscription</h1>
-        
-        {{ form(form)}}
+    <div class="jumbotron">
+        <h3 class="display-6 text-center">Inscription</h3>
+        <div class="login-form">
+            {{ form(form)}}
+        </div>
+    </div>
 
 {% endblock %}

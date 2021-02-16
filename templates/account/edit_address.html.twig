@@ -3,13 +3,14 @@
 {% block title 'Modifier une adresse | ' ~ parent() %}
 
 {% block content %}
-    <h3>Modifier une adresse</h3>
     <div class="float-right mt-2 mr-2">
         <a href="{{path('account_addresses')}}" class="btn btn-secondary" title="mes adresses">
             <i class="fas fa-long-arrow-alt-left"></i> Mes adresses
         </a>
     </div>
     <div class="jumbotron">
-        {{ include ('account/_formAdress.html.twig', {button: 'Modifier'}) }}
+        <h3 class="display-6 text-center">Modifier une adresse</h3>
+        <br>
+        {{ include ('account/_formAddress.html.twig', {form:form, button: ' Modifier'}) }}
     </div>
 {% endblock %}

@@ -105,12 +105,6 @@ class AddressType extends AbstractType
                     'class' => 'placeholder-custmomized'
                 ]
             ])
-            ->add('submit', SubmitType::class, [
-                'label' => ' Valider',
-                'attr' => [
-                    'class' => 'btn btn-success fas fa-check text-white'
-                ]
-            ])
         ;
     }
 

@@ -3,50 +3,51 @@
 {% block title 'Mes Adresses | ' ~ parent() %}
 
 {% block content %}
-    <h3>Mes adresses</h3>
     <div class="float-right mt-2 mr-2">
         <a href="{{path('account')}}" class="btn btn-secondary" title="mon compte">
             <i class="fas fa-long-arrow-alt-left"></i> Mon compte
         </a>
     </div>
     <div class="jumbotron">
-    {% if app.user.addresses|length == 0 %}
-        <p class="lead d-flex justify-content-center">À ce jour, vous n'avez pas encore enregistré d'adresse.</p>
-        <hr class="my-4">
-        <div class="d-flex justify-content-around">
-            <a href="{{path('account_add_address')}}" class="btn btn-info">
-                <i class="fas fa-map-marker-alt"></i> Ajouter une adresse
-            </a>
-        </div>
-    {% else %}
-        <p class="lead d-flex justify-content-center"><b>{{ app.user.firstname }}</b>, sur cette page vous pouvez gérer vos adresses.</p>
-        <hr class="my-4">
-        <div class="row">
-            {% for address in app.user.addresses %}
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ address.name }}</h5>
-                            <p class="card-text">
-                                {{ address.address }} <br>
-                                {{ address.postal }} | {{ address.city }} - {{ address.country }}
-                            </p>
-                            <a href="{{path('account_edit_address', {'id':address.id})}}" class="btn btn-warning text-white">
-                                <i class="fas fa-pencil-alt"></i> Modifier
-                            </a>
-                            <a href="{{path('account_delete_address', {'id':address.id})}}" class="btn btn-danger text-white">
-                                <i class="fas fa-times"></i> Supprimer
-                            </a>
-                        </div>
-                    </div>    
-                </div>
-            {% endfor %}
+        <h3 class="display-6 text-center">Mes adresses</h3>
+        <br>
+        {% if app.user.addresses|length == 0 %}
+            <p class="lead d-flex justify-content-center">À ce jour, vous n'avez pas encore enregistré d'adresse.</p>
+            <hr class="my-4">
+            <div class="d-flex justify-content-around">
+                <a href="{{path('account_add_address')}}" class="btn btn-info">
+                    <i class="fas fa-map-marker-alt"></i> Ajouter une adresse
+                </a>
             </div>
-        <hr class="my-4">
-        <div class="d-flex justify-content-around">
-            <a href="{{path('account_add_address')}}" class="btn btn-info">Ajouter une adresse</a>
-        </div>
-    {% endif %}
+        {% else %}
+            <p class="lead d-flex justify-content-center"><b>{{ app.user.firstname }}</b>, sur cette page vous pouvez gérer vos adresses.</p>
+            <hr class="my-4">
+            <div class="row">
+                {% for address in app.user.addresses %}
+                    <div class="col-md-4">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ address.name }}</h5>
+                                <p class="card-text">
+                                    {{ address.address }} <br>
+                                    {{ address.postal }} | {{ address.city }} - {{ address.country }}
+                                </p>
+                                <a href="{{path('account_edit_address', {'id':address.id})}}" class="btn btn-warning text-white" onsubmit="return confirm('êtes-vous certain?')">
+                                    <i class="fas fa-pencil-alt"></i> Modifier
+                                </a>
+                                <a href="{{path('account_delete_address', {'id':address.id})}}" class="btn btn-danger text-white">
+                                    <i class="fas fa-times"></i> Supprimer
+                                </a>
+                            </div>
+                        </div>    
+                    </div>
+                {% endfor %}
+                </div>
+            <hr class="my-4">
+            <div class="d-flex justify-content-around">
+                <a href="{{path('account_add_address')}}" class="btn btn-info">Ajouter une adresse</a>
+            </div>
+        {% endif %}
     </div>
 
 {% endblock %}
