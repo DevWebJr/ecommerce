@@ -32,9 +32,10 @@ class SearchType extends AbstractType
             'expanded' => true
             ])
         ->add('submit', SubmitType::class, [
+            'label' => false,
             'attr' => [
                 'placeholder' => ' ... ',
-                'class' => 'btn-block btn-info',
+                'class' => 'btn-block btn-info fas fa-search',
                 ]
             ])
         ;

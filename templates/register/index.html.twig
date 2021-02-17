@@ -16,10 +16,12 @@
                 </div>
                     {{ form_widget(form)}}
                 <div class="d-flex justify-content-center">
-                    <button class="btn btn-primary fas fa-check">{{button|default(" S'inscrire")}}</button>
+                    <button class="btn btn-info fas fa-check">{{button|default(" S'inscrire")}}</button>
                 </div>
                     <hr>
-                    <p class="text-center"><a href="{{path('app_login')}}">Vous avez déjà un compte</a></p>
+                    <p class="text-center">
+                        <a class="text-warning" href="{{path('app_login')}}">Vous avez déjà un compte</a>
+                    </p>
             {{ form_end(form)}}
         </div>
     </div>

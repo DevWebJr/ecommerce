@@ -1,6 +1,6 @@
 {% extends "layouts/base.html.twig" %}
 
-{% block title 'Nos Produits | ' ~ parent() %}
+{% block title 'La boutique | ' ~ parent() %}
 
 {% block content %}
     <div class="row">
@@ -9,7 +9,12 @@
             {{ form(form)}} 
         </div>
         <div class="col-md-10">
-            <h3>Nos Produits</h3>
+            <div class="d-flex justify-content-between flex-row">
+                <h3>La boutique</h3>
+                <a href="{{path('cart')}}" class="btn btn-info" title="mon panier">
+                    <i class="fas fa-shopping-cart"></i> 
+                </a>
+            </div>    
             <div class="vignettes">
                 {% for product in products %}
                     <div class="col-md-4 vignette">
