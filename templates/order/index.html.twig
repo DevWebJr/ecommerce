@@ -9,16 +9,48 @@
         </a>
     </div>
     <div class="jumbotron">
-        <h3 class="display-6 text-center">Ma commande</h3>
-        <br>
+        <h3 class="display-6 text-center">
+            <i class="fas fa-list-alt user-color"></i> Ma commande
+        </h3>
+        <hr>
+        <div class="vertical-space-2"></div>
         <div class="row">
             <div class="col-md-6">
-                <b>Mon adresse de livraison</b>
-                <b>Mon transporteur</b>
+                {# <h6 class="text-center">
+                    <i class="fas fa-map-marker-alt user-color"></i> Mon adresse de livraison
+                </h6> #}
+                {% set formHtml %}
+                    {{ form(form) }}
+                {% endset %}
+                
+                {{ formHtml|replace({'[br]' : '<br/>'})|raw }}
+
+                {# <h6 class="text-center">
+                    <i class="fas fa-shipping-fast user-color"></i> Mon transporteur
+                </h6> #}
             </div>
-            <div class="col-md-6">
-                <b>Récapitulatif de ma commande</b>
-                <a href="" class="btn btn-primary">Payer</a>
+            <div class="mt-1 col-md-6">
+                {# <h6 class="text-center">
+                    <i class="fas fa-list user-color"></i> Les articles de mon panier
+                </h6> #}
+                {% for product in cart %}
+                    <div class="row">
+                        <div class="col-4">
+                            <img src=" {{ asset('/uploads/' ~ product.product.picture)}} " alt="{{ product.product.name }}" title="{{ product.product.name }}" class="img-fluid illustration-min">
+                        </div>
+                        <div class="col-6 my-auto">
+                            <span class="text-warning">{{ product.product.name}}</span>
+                        </div>
+                        <div class="col-2 my-auto">
+                            x  <span class="text-info">{{ product.quantity}}</span>
+                        </div>
+                    </div>
+                    <div class="vertical-space-1"></div>
+                    {# <pre>
+                        {{ dump(cart) }}
+                    </pre> #}
+                {% endfor %}
+                <a href="" class="btn btn-warning btn-block">Payer</a>
             </div>
         </div>
     </div>

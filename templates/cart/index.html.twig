@@ -13,10 +13,12 @@
         </a>
     </div>
     <div class="jumbotron">
-        <h3 class="display-6 text-center">Mon Panier {% if cart|length < 1 %} (vide){% endif %}</h3>
+        <h3 class="display-6 text-center">
+            <i class="fas fa-shopping-cart user-color"></i>
+             Mon Panier {% if cart|length < 1 %} (vide){% endif %}
+        </h3>
         <br>
         {% if cart|length > 0 %}
-            <p class="lead">Retrouvez l'ensemble des produits ajoutés à votre panier.</p>
             <table class="table">
                 <thead>
                     <tr>
@@ -41,7 +43,7 @@
                             <a href="{{path('decrease_from_cart', {'id' : index.product.id})}}" title="diminuer">
                                 <i class="text-info fas fa-minus"></i>
                             </a>
-                            <span style="margin-left:0.6vw;">X {{ index.quantity}}</span>
+                            <span style="margin-left:0.6vw;">x {{ index.quantity}}</span>
                             <a href="{{path('add_to_cart', {'id' : index.product.id})}}" title="augmenter">
                                 <i class="text-info fas fa-plus"></i>
                             </a>

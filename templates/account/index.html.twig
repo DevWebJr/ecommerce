@@ -4,10 +4,13 @@
 
 {% block content %}
     <div class="jumbotron">
-        <h3 class="display-6 text-center">Mon Compte</h3>
+        <h3 class="display-6 text-center">
+            <i class="user-color fas fa-user-cog"></i>
+             Mon Compte
+        </h3>
         <br>
         {% if app.user %}
-            <p class="lead d-flex justify-content-center"><b>{{ app.user.firstname }}</b>, bienvenue sur votre page personnelle.</p>
+            <p class="lead d-flex justify-content-center"><b>{{ app.user.lastName }} {{ app.user.firstname }}</b>, bienvenue sur votre page personnelle.</p>
             <hr class="my-4">
             <div class="d-flex justify-content-around">
                 <a class="btn btn-info" title="modifier mon mot de passe" href="{{path('edit_password')}}">

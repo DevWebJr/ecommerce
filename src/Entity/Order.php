@@ -56,6 +56,11 @@ class Order
         $this->orderDetails = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->getCarrierName();
+    }
+    
     public function getId(): ?int
     {
         return $this->id;

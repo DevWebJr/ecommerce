@@ -3,32 +3,37 @@
 {% block title 'La boutique | ' ~ parent() %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-md-2">
-            <h3>Filtrer</h3>
-            {{ form(form)}} 
-        </div>
-        <div class="col-md-10">
-            <div class="d-flex justify-content-between flex-row">
-                <h3>La boutique</h3>
-                <a href="{{path('cart')}}" class="btn btn-info" title="mon panier">
-                    <i class="fas fa-shopping-cart"></i> 
-                </a>
-            </div>    
-            <div class="vignettes">
-                {% for product in products %}
-                    <div class="col-md-4 vignette">
-                        <div class="product-item text-center">
-                            <a href="{{path('show_one_product', {id:product.id})}}">
-                                <img src="{{ asset('/uploads/' ~ product.picture) }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-fluid img-thumbnail illustration ">
-                            </a>
-                            <div class="under-vignette">
-                                <span class="product-title">{{ product.name }}</span>
-                                <span class="product-price">{{ (product.price/100)|number_format(2, ',' , '.') }} €</span>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-2">
+                <h3>Filtrer</h3>
+                {{ form(form)}} 
+            </div>
+            <div class="col-md-10">
+                <div class="d-flex justify-content-between flex-row ml-5 mr-5">
+                    <h3 class="display-6 text-center">
+                        <i class="fas fa-store user-color"></i> 
+                        La boutique
+                    </h3>
+                    <a href="{{path('cart')}}" class="btn btn-info" title="mon panier">
+                        <i class="fas fa-shopping-cart"></i> 
+                    </a>
+                </div>    
+                <div class="vignettes">
+                    {% for product in products %}
+                        <div class="col-md-4 vignette">
+                            <div class="product-item text-center">
+                                <a href="{{path('show_one_product', {id:product.id})}}">
+                                    <img src="{{ asset('/uploads/' ~ product.picture) }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-fluid img-thumbnail illustration ">
+                                </a>
+                                <div class="under-vignette">
+                                    <span class="product-title">{{ product.name }}</span>
+                                    <span class="product-price">{{ (product.price/100)|number_format(2, ',' , '.') }} €</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

@@ -4,9 +4,12 @@
 
 {% block content %}
 <div class="jumbotron">
-    <h3 class="display-6 text-center">Connexion</h3>
-    <div class="login-form">
-        <form method="post">
+    <h3 class="display-6 text-center">
+            <i class="fas fa-user user-color"></i> 
+             Connexion
+        </h3>
+    <div class="login-form row d-flex justify-content-center">
+        <form method="post" class="col-md-7">
             {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}

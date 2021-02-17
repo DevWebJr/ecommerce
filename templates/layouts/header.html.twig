@@ -9,7 +9,7 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{path('products')}}">
                         <span class="user-color">
-                            <i class="ml-3 text-warning fas fa-store"></i> La boutique
+                            <i class="text-warning fas fa-store"></i> La boutique
                         </span>
                         <span class="sr-only">(current)</span>
                     </a>
@@ -40,16 +40,24 @@
                         </span>
                     </a>
                 </li>
+                {% if app.user %}
+                <div class="horizontal-space-3"></div>
+                <div class="horizontal-space-3"></div>
+                <div class="horizontal-space-3"></div>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path('account')}}" title="Mon Compte" disabled>
+                        <span class="user-color">
+                            <i class="text-warning fas fa-thumbs-up"></i> {{ app.user.lastName }} {{ app.user.firstName }}
+                        </span>
+                    </a>
+                </li>
+                {% endif %}
             </ul>
             <div class="navbar-item-custom">
                 {% if app.user %}
-                    {# <a href="{{path('cart')}}" title="Panier">
-                        <i class="user-color fas fa-shopping-cart"></i>
-                        <span class="user-color" > | </span>
-                    </a> #}
                     <a href="{{path('account')}}">
                         <i class="user-color fas fa-user-cog" title="mon compte"></i>
-                        <span class="user-color" > | </span>
+                        <span class="text-warning" > | </span>
                     </a>
                     <a href="{{path('app_logout')}}" title="Déconnexion">
                         <i class="user-color fas fa-user-alt-slash"></i>
@@ -57,7 +65,7 @@
                 {% else %}
                     <a href="{{path('app_login')}}" title="Connexion">
                         <i class="user-color fas fa-user"></i>
-                        <span class="user-color" > | </span>
+                        <span class="text-warning" > | </span>
                     </a>
                     <a href="{{path('register')}}" title="Inscription">
                         <i class="user-color fas fa-user-edit"></i>

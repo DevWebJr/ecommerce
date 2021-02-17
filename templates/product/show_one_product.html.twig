@@ -1,21 +1,22 @@
 {% extends "layouts/base.html.twig" %}
 
 {% block content %}  
-    <div class="row">
-        <div class="col-md-4">
-            <img src=" {{ asset('/uploads/' ~ product.picture)}} " alt="{{ product.name }}" title="{{ product.name }}" class="img-fluid img-thumbnail">
-        </div>
-        <div class="col-md-8 my-auto">
-            <h3>{{ product.name }}</h3>
-            <br/>
-            <span class="product-price">{{(product.price/100)|number_format(2, ',' , '.')}} €</span>
-            <hr>
-            <p>{{ product.description }}</p>
-            
-            <a href="{{path('add_to_cart', { id : product.id } )}}" class="btn btn-primary" title="ajouter au panier">
-                <i class="fas fa-shopping-cart mr-1"></i>
-            </a>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-4">
+                <img src=" {{ asset('/uploads/' ~ product.picture)}} " alt="{{ product.name }}" title="{{ product.name }}" class="img-fluid img-thumbnail">
+            </div>
+            <div class="col-md-8 my-auto">
+                <h3>{{ product.name }}</h3>
+                <br/>
+                <span class="product-price">{{(product.price/100)|number_format(2, ',' , '.')}} €</span>
+                <hr>
+                <p>{{ product.description }}</p>
+                
+                <a href="{{path('add_to_cart', { id : product.id } )}}" class="btn btn-primary" title="ajouter au panier">
+                    <i class="fas fa-shopping-cart mr-1"></i>
+                </a>
+            </div>
         </div>
     </div>
-    <br>
 {% endblock %}
