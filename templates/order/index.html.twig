@@ -20,7 +20,8 @@
                     <i class="fas fa-map-marker-alt user-color"></i> Mon adresse de livraison
                 </h6> #}
                 {% set formHtml %}
-                    {{ form(form) }}
+                    {{ form_start(form, {action:path('order_details')}) }}
+                    {{ form_end(form) }}
                 {% endset %}
                 
                 {{ formHtml|replace({'[br]' : '<br/>'})|raw }}
@@ -50,7 +51,7 @@
                         {{ dump(cart) }}
                     </pre> #}
                 {% endfor %}
-                <a href="" class="btn btn-warning btn-block">Payer</a>
+                <a href="{{path('order_details')}}" class="btn btn-warning btn-block">Payer</a>
             </div>
         </div>
     </div>

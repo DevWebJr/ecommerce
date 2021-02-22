@@ -51,7 +51,7 @@ class AccountAddressController extends AbstractController
     
             if($cart->get())
             {
-                return $this->redirectToRoute('account_addresses');
+                return $this->redirectToRoute('order');
             }
             else
             {
