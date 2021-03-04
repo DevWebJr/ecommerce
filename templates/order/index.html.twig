@@ -16,41 +16,43 @@
         <div class="vertical-space-2"></div>
         <div class="row">
             <div class="col-md-6">
-                {# <h6 class="text-center">
-                    <i class="fas fa-map-marker-alt user-color"></i> Mon adresse de livraison
-                </h6> #}
                 {% set formHtml %}
                     {{ form_start(form, {action:path('order_details')}) }}
+                        {{form_label(form.addresses, 'Mon adresse')}}
+                        <a class="user-color fas fa-plus" href="{{path('account_add_address')}}" title="ajouter une adresse"></a>
+                        <div class="vertical-space-1"></div>
                     {{ form_end(form) }}
                 {% endset %}
                 
                 {{ formHtml|replace({'[br]' : '<br/>'})|raw }}
 
-                {# <h6 class="text-center">
-                    <i class="fas fa-shipping-fast user-color"></i> Mon transporteur
-                </h6> #}
             </div>
             <div class="mt-1 col-md-6">
-                {# <h6 class="text-center">
-                    <i class="fas fa-list user-color"></i> Les articles de mon panier
-                </h6> #}
+                {% set total = null %}
+
                 {% for product in cart %}
                     <div class="row">
                         <div class="col-4">
                             <img src=" {{ asset('/uploads/' ~ product.product.picture)}} " alt="{{ product.product.name }}" title="{{ product.product.name }}" class="img-fluid illustration-min">
                         </div>
-                        <div class="col-6 my-auto">
+                        <div class="col-6 my-auto d-flex flex-row justify-content-between">
                             <span class="text-warning">{{ product.product.name}}</span>
-                        </div>
-                        <div class="col-2 my-auto">
-                            x  <span class="text-info">{{ product.quantity}}</span>
+                            x  <span class="text-info">{{ product.quantity}}</span> = 
+                            <span class="text-warning">{{ ((product.product.price * product.quantity) /100)|number_format(2, ',', '.') }}</span> €
                         </div>
                     </div>
                     <div class="vertical-space-1"></div>
-                    {# <pre>
-                        {{ dump(cart) }}
-                    </pre> #}
+                    <div class="col-2 my-auto">
+                    </div>
+                    {% set total = total + (product.product.price * product.quantity) %}
                 {% endfor %}
+                    <div class="d-flex justify-content-center">
+                        <b>Sous-Total : </b>
+                        <div class="horizontal-space-1"></div>
+                        <span class="text-warning"> {{ (total/100)|number_format(2, ',', '.') }}</span> <b>€</b>
+                    </div> 
+                    <div class="vertical-space-1"></div>
+
                 <a href="{{path('order_details')}}" class="btn btn-warning btn-block">Payer</a>
             </div>
         </div>

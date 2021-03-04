@@ -44,7 +44,7 @@ class OrderController extends AbstractController
     }
     
     /**
-     * @Route("/commande/details", name="order_details")
+     * @Route("/commande/details", name="order_details", methods={"POST"})
      */
     public function add(Cart $cart, Request $request): Response
     {
@@ -64,8 +64,7 @@ class OrderController extends AbstractController
             $delivery_content .= '<br/>' . $delivery->getAddress();
             $delivery_content .= '<br/>' . $delivery->getPostal(). ' ' .$delivery->getCity();
             $delivery_content .= '<br/>' . $delivery->getCountry();
-            dd($delivery);
-
+            
             
             $order = new Order();
             $order->setUser($this->getUser());
@@ -90,11 +89,15 @@ class OrderController extends AbstractController
             }
 
             $this->entityManager->flush();
+            
+            return $this->render('order/order_details.html.twig', [
+                'cart' => $cart->getFullCart(),
+                'carrier' => $carriers,
+                'delivery' => $delivery
+            ]);
         }
         
+        return $this->redirectToRoute('cart');
  
-        return $this->render('order/nice.html.twig', [
-            'cart' => $cart->getFullCart()
-        ]);
     }
 }
