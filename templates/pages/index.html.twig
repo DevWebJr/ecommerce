@@ -1,9 +1,8 @@
 {% extends "layouts/base.html.twig" %}
 {% block body %}
-    <div class="container marketing">
-    
+    {% block content %}    
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4 text-center">
                 <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
                     <title>Placeholder</title>
@@ -16,7 +15,7 @@
                     cursus magna.</p>
                 <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 text-center">
                 <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
                     <title>Placeholder</title>
@@ -29,7 +28,7 @@
                     condimentum nibh.</p>
                 <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 text-center">
                 <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
                     <title>Placeholder</title>
@@ -107,6 +106,5 @@
         </div>
     
         <hr class="featurette-divider">
-    
-    </div>
+    {% endblock %}
 {% endblock %}

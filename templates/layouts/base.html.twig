@@ -1,39 +1,18 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}ecommerce{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
-            <link rel="stylesheet" href=" {{asset('assets/css/style.css')}} ">
-            <link rel="stylesheet" href=" {{asset('assets/css/carousel.css')}} ">
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-                integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-            <script src=" {{asset('assets/js/script.js')}} "></script>
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-                crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-                crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
-                integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
-                crossorigin="anonymous"></script>
-        {% endblock %}
-    </head>
+    {% include "layouts/head.html.twig" %}
     <body>
         {% include "layouts/header.html.twig" %}
-        {% include "layouts/carousel.html.twig" %}
         {% include "layouts/partials/_flash_messages.html.twig" %}
-        <main role="main" class="container">
-            {% block body %}
+        {% include "layouts/carousel.html.twig" %}        
+        <main role="main" class="container-fluid">
+            {% block body %}    
+                <div class="container marketing">
+                    {% block content %}
+                    {% endblock %}
+                </div>
             {% endblock %}
+            {% include "layouts/footer.html.twig" %}
         </main>
-        {% include "layouts/footer.html.twig" %}
     </body>
 </html>
