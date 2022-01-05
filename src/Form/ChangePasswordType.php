@@ -11,70 +11,61 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\Length;
 
-class RegisterType extends AbstractType
+class ChangePasswordType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('lastname', TextType::class, [
-                'label' => false,
-                'constraints' => new Length([
-                    'min' => 2,
-                    'max' =>33
-                ]),
-                'attr' => [
-                    'placeholder' => 'Nom',
-                    'class' => 'text-center'
-                ]
-            ])
-            ->add( 'firstname', TextType::class, [
-                'label' => false,
-                'constraints' => new Length([
-                    'min' => 2,
-                    'max' =>33
-                ]),
-                'attr' => [
-                    'placeholder' => 'Prénom',
-                    'class' => 'text-center'
-                ]
-            ])
             ->add('email', EmailType::class, [
+                'disabled' => true,
                 'label' => false,
-                'constraints' => new Length([
-                    'min' => 2,
-                    'max' =>33
-                ]),
                 'attr' => [
                     'placeholder' => 'Email',
                     'class' => 'text-center'
                 ]
+                ])
+            ->add('firstname', TextType::class, [
+                'disabled' => true,
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Prénom',
+                    'class' => 'text-center'
+                ]
+                ])
+            ->add('lastname', TextType::class, [
+                'disabled' => true,
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Nom',
+                    'class' => 'text-center'
+                ]
+                ])
+            ->add('password', PasswordType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Mot De Passe'
+                ]
             ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
+                'mapped' => false,
                 'invalid_message' => 'Le mot de passe et sa confirmation doivent être identiques',
-                'label' => 'Mot De Passe',
+                'label' => 'Nouveau Mot De Passe',
                 'required' => true,
-                'first_options' => [
-                    'label' => false, 
-                    'attr' => ['placeholder' => 'Mot De Passe',
-                        'class'=> 'text-center'
-                        ],
-                ],
-                'second_options' => [
-                    'label' => false, 
-                    'attr' => ['placeholder' => 'Confirmer',
-                        'class'=> 'text-center'
-                        ],
-                ],
+                'first_options' => ['label' => false, 'attr' => [
+                    'placeholder' => 'Nouveau Mot De Passe',
+                    'class'=> 'text-center']],
+                'second_options' => ['label' => false, 'attr' => [
+                    'placeholder' => 'Confirmer',
+                    'class' => 'text-center']],
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Valider',
                 'attr' => [
-                    'class' => 'btn btn-block btn-success text-light'
+                    'class' => 'btn btn-block btn-warning text-light'
                 ]
-            ])            
+            ])      
         ;
     }
 
