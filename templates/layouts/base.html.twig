@@ -4,7 +4,9 @@
     <body>
         {% include "layouts/header.html.twig" %}
         {% include "layouts/partials/_flash_messages.html.twig" %}
-        {% include "layouts/carousel.html.twig" %}        
+        {% if block('carousel') is defined %}
+            {% include "layouts/carousel.html.twig" %}        
+        {% endif %}
         <main role="main" class="container-fluid">
             {% block body %}    
                 <div class="container marketing">
