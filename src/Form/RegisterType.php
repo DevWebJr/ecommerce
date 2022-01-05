@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,33 +20,28 @@ class RegisterType extends AbstractType
             ->add('lastname', TextType::class, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'saisir votre nom'
+                    'placeholder' => 'Nom'
                 ]
             ])
             ->add( 'firstname', TextType::class, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'saisir votre prénom'
+                    'placeholder' => 'Prénom'
                 ]
             ])
             ->add('email', EmailType::class, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'saisir votre email'
+                    'placeholder' => 'Email'
                 ]
             ])
-            ->add('password', PasswordType::class, [
-                'label' => false,
-                'attr' => [
-                    'placeholder' => 'saisir votre mot de passe'
-                ]
-            ])
-            ->add('password_confirm', PasswordType::class, [
-                'label' => false,
-                'mapped' => false,
-                'attr' => [
-                    'placeholder' => 'Confirmer votre mot de passe'
-                ]
+            ->add('password', RepeatedType::class, [
+                'type' => PasswordType::class,
+                'invalid_message' => 'Le mot de passe et sa confirmation doivent être identiques',
+                'label' => 'Mot De Passe',
+                'required' => true,
+                'first_options' => ['label' => false, 'attr' => ['placeholder' => 'Mot De Passe']],
+                'second_options' => ['label' => false, 'attr' => ['placeholder' => 'Confirmer']],
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Valider',
