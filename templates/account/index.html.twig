@@ -1,0 +1,10 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block title 'Mon Compte | ' ~ parent() %}
+
+{% block content %}
+    <h1>Mon Compte</h1>
+    <p>Bienvenue {{app.user.firstname}} , <br> Cette page est dédiée à la gestion de votre compte.</p>
+
+
+{% endblock %}
