@@ -41,13 +41,16 @@ class ChangePasswordType extends AbstractType
                     'class' => 'text-center'
                 ]
                 ])
-            ->add('password', PasswordType::class, [
+            ->add('old_password', PasswordType::class, [
                 'label' => false,
+                'mapped' => false,
                 'attr' => [
-                    'placeholder' => 'Mot De Passe'
+                    'placeholder' =>
+                    'Mot De Passe Actuel',
+                    'class' => 'text-center'
                 ]
             ])
-            ->add('password', RepeatedType::class, [
+            ->add('new_password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'mapped' => false,
                 'invalid_message' => 'Le mot de passe et sa confirmation doivent être identiques',
