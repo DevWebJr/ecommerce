@@ -8,17 +8,17 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Hommes</a>
+                    <a class="nav-link" href="#">Nos produits</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Femmes</a>
+                    <a class="nav-link" href="#">Qui sommes-nous?</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Enfants</a>
+                    <a class="nav-link" href="#">Contact</a>
                 </li>
             </ul>
             {% if app.user %}
-                <a href="{{path('account')}}" class="btn btn-secondary">Mon Compte</a> | <a href="{{path('app_logout')}}" class="btn btn-dark">Déconnexion</a>
+                <a href="{{path('account')}}" class="btn btn-secondary"><small title="Mon Compte">{{app.user.firstname}}</small></a> | <a href="{{path('app_logout')}}" class="btn btn-dark"> <i class="fas fa-sign-out-alt" title="Déconnexion"></i> </a>
             {% else %}
                 <a href="{{path('app_login')}}" class="btn btn-secondary">Connexion</a> | <a href="{{path('register')}}" class="btn btn-dark">Inscription</a>
             {% endif %}

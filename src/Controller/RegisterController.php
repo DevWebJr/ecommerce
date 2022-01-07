@@ -38,6 +38,12 @@ class RegisterController extends AbstractController
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();
+
+            $this->addFlash('success text-center', "Merci de vous être inscrit.");
+        }
+        else
+        {
+            
         }
 
         return $this->render('register/index.html.twig',

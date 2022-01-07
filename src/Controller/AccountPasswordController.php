@@ -48,7 +48,11 @@ class AccountPasswordController extends AbstractController
                 $user->setPassword($password);
                 $this->entityManager->flush();
                 
-                $this->addFlash('success', 'Votre mot de passe a été modifié.');
+                $this->addFlash('success text-center', 'Votre mot de passe a été modifié.');
+            }
+            else
+            {
+                $this->addFlash('danger text-center', 'Erreur de saisie concernant votre mot de passe actuel.');
             }
         }
 
