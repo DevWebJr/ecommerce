@@ -1,6 +1,17 @@
-html,
-body {
-    margin: 3vw 0 0 0;
-    padding: 1vw;
-    color: #000;
+html{
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+
+}
+
+.footer-custumized {
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    min-height: 5vw;
+    max-height: 5vw;
+    position: fixed;
+    background-color: #E9ECEF;
+    padding-top: 25px;
 }

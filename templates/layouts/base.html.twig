@@ -7,14 +7,15 @@
         {% if block('carousel') is defined %}
             {% include "layouts/carousel.html.twig" %}        
         {% endif %}
-        <main role="main" class="container-fluid">
-            {% block body %}    
+        <main role="main">
+            {% block body %}   
+                <br><br>
                 <div class="container marketing">
                     {% block content %}
                     {% endblock %}
                 </div>
             {% endblock %}
-            {% include "layouts/footer.html.twig" %}
         </main>
+        {% include "layouts/footer.html.twig" %}
     </body>
 </html>
