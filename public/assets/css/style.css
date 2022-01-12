@@ -2,9 +2,28 @@ html{
     margin: 0;
     padding: 0;
     background-color: #FFFFFF;
-
 }
 
+.product-item h5 {
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-bottom: 1px;
+}
+
+.product-item .product-subtitle {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.product-item .product-subtitle {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.product-item{
+    margin: 1vw;
+}
 .footer-custumized {
     text-align: center;
     bottom: 0;
@@ -14,4 +33,12 @@ html{
     position: fixed;
     background-color: #E9ECEF;
     padding-top: 25px;
+}
+
+.product-item img {
+    min-height: 15vw;
+    max-height: 15vw;
+    min-width: 13vw;
+    max-width: 13vw;
+    margin-bottom: 1vw;
 }

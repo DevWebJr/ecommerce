@@ -1,0 +1,19 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block title 'Nos Produits | La Boutique' %}
+
+{% block content %}
+<h1 class="text-center mt-5 text-secondary">Nos Produits</h1>
+<br>
+
+<div class="d-flex flex-wrap">
+    {% for product in products %}
+            <div class="product-item text-center">
+                <img src="./assets/images/uploads/{{product.illustration}}" class="img-fluid" alt="{{product.subtitle}}" title="{{product.subtitle}}">
+                <h5>{{product.name}}</h5>
+                <span class="product-subtitle">{{product.subtitle}} €</span>
+                <span class="product-price">{{product.price}}</span>
+            </div>
+    {% endfor %}
+</div>
+{% endblock %}

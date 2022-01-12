@@ -48,7 +48,7 @@ class Product
     private $price;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="products")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="product")
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
